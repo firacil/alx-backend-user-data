@@ -75,11 +75,9 @@ class BasicAuth(Auth):
 
         if not users:
             return None
-
-        # assume that email is unique and get the first matching user
-        user = users[0]
-
-        if not user.is_valid_password(user_pwd):
-            return None
+        else:
+            user = users[0]
+            if not user.is_valid_password(user_pwd):
+                return None
 
         return user
